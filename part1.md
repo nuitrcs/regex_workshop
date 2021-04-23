@@ -66,14 +66,43 @@ We're going to use an online tool called RegExr to practice regular expressions.
 
 ![Image of tool](tool_tour.png)
 
+You can [open the tool](http://regexr.com/5rdpd) with the astronaut text and example loaded.
+
+In this tool, you type the regular expression in between `//`.  In Python and R, the regular expression will be an input to a function instead, so you'll express it as a string or a special raw string designed for use with regular expressions.  
+
+Here, the "flags" are represented after the slash.  While you'll specify these differently in other languages, the concepts are the same.  The two flags to know about at this point are:
+
+* global (g): find ALL matches in the text, not just the first one
+* case insensitive (i): if this flag is "on", then "a" matches both "a" and "A"; otherwise, matches are case sensitive
+
+In our example, our regular expression is "Soviet Union".  This will look for exact matches to these characters.
+
+### EXERCISE
+
+Go to the [example pattern](http://regexr.com/5rdpd):
+
+1. Change the pattern to: `soviet union` - does it still match?
+2. Change the pattern to find female astronauts
+
 ## Concept 2: Match Anything
+
+
+### EXERCISE
 
 ## Concept 3: Character Classes
 
+### EXERCISE
+
 ## Concept 4: Predefined Character Classes
+
+### EXERCISE
 
 ## Concept 5: Repetition
 
+### EXERCISE
+
 ## Concept 6: Beginning and End
+
+### EXERCISE
 
 
