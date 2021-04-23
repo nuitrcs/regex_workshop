@@ -77,12 +77,15 @@ Here, the "flags" are represented after the slash.  While you'll specify these d
 
 In our example, our regular expression is "Soviet Union".  This will look for exact matches to these characters.
 
-### EXERCISE
+<div style="background: #cccccc;color: #333333;">
+### ** EXERCISE
 
 Go to the [example pattern](http://regexr.com/5rdpd):
 
 1. Change the pattern to: `soviet union` - does it still match?
 2. Change the pattern to find female astronauts
+
+</div>
 
 ## Concept 2: Match Anything
 
