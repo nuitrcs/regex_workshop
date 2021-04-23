@@ -60,6 +60,12 @@ How do we get this into a format that we could use?
 
 ## Concept 1: Fixed Matches
 
+While we don't generally need regular expressions to match a specific string of text, we can use them that way.  For example, if we want to find all instances of "Soviet Union" in our astronaut list, then we can do that.  
+
+We're going to use an online tool called RegExr to practice regular expressions.  
+
+![Image of tool](tool_tour.png)
+
 ## Concept 2: Match Anything
 
 ## Concept 3: Character Classes
@@ -67,3 +73,7 @@ How do we get this into a format that we could use?
 ## Concept 4: Predefined Character Classes
 
 ## Concept 5: Repetition
+
+## Concept 6: Beginning and End
+
+
