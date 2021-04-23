@@ -19,3 +19,5 @@ For R and Python sessions...
 ## Resources
 
 For additional recommended resources for learning regular expressions, see https://sites.northwestern.edu/researchcomputing/2021/03/04/online-learning-resources-regular-expressions/.  
+
+You may find [this cheatsheet](https://paulvanderlaken.files.wordpress.com/2017/08/davechild_regular-expressions.pdf) to be a useful reference.
