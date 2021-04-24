@@ -1,5 +1,7 @@
 These materials are for the first part of the regular expression workshop.
 
+You may find [this cheatsheet](https://paulvanderlaken.files.wordpress.com/2017/08/davechild_regular-expressions.pdf) to be a useful reference.
+
 ## What are regular expressions?
 
 Regular expressions are patterns we can use to search text.  These patterns are built using a special syntax that allows us to express different concepts, such as character classes, repetition, and the beginning and end of text.  This syntax can vary across different implementations of regular expressions (in different programming languages), but there are some common components.  
@@ -77,34 +79,104 @@ Here, the "flags" are represented after the slash.  While you'll specify these d
 
 In our example, our regular expression is "Soviet Union".  This will look for exact matches to these characters.
 
-### EXERCISE
+### EXERCISE 1
 
 Go to the [example pattern](http://regexr.com/5rdpd):
 
 1. Change the pattern to: `soviet union` - does it still match?
-2. Change the pattern to find female astronauts
-
+2. Change the pattern to find female astronauts.  Type the number of female astronauts in the text in the chat.
 
 
 ## Concept 2: Match Anything
 
+Now we're going to start to learn the metacharacters -- the characters that have special meaning and don't match literally.  
 
-### EXERCISE
+The first one is a `.`, which we call "dot" when reading regular expressions out loud - it is the period/full stop/sentence terminator.  It matches any one single character EXCEPT the new line `\n`.  You can use multiple `.` in the same expression.
 
-## Concept 3: Character Classes
+What do we do then if we want to match an actual period in the text?  We need to escape the `.` to tell the regular expression processor not to treat it as a metacharacter.  We do this with a `\`: for example: `\.`.  This will then only match a `.`.
 
-### EXERCISE
+*Advanced note: there's something called a "flag" that you can set to make `.` also match `\n`; the flag is generally called dotall.*  
 
-## Concept 4: Predefined Character Classes
+### EXERCISE 2
 
-### EXERCISE
+Open the [blank example](regexr.com/5rddd).  
 
-## Concept 5: Repetition
+1. Write a regular expression to find any substrings consisting of a capital A, followed by any character, followed by a lower case a.  For example, the regex should match both "Aca" and "Ada".  Type the last match in the chat.  
+2. Write a regular expression to find any 5 letter sequences starting with A and ending with n.  
+3. Write an expression to find actual period marks in the text.  How many are there?  Put the answer in the chat.  
 
-### EXERCISE
+For part 2 of the exercise above, you'll notice that the pattern matches across words.  We'll learn about word boundaries (`\b`) in [Part 2](part2.html) of the workshop.
+
+## Concept 3: Repetition
+
+We don't want to have to type a bunch of `.....` to match multiple characters.  So how do we match more than one character at once?  We can use quantifiers.  Quantifiers apply to the part of the regular expression immediately before them.  Until we learn about groups in [Part 2](part2.html), this means that quantifiers apply only to the character immediately before them.
+
+Quantifiers:
+
+* `*` matches the preceeding character 0 or more times.  This means the preceeding character is "optional" or doesn't have to be included at all.
+* `+` matches the preceeding character 1 or more times.  The character has to be present at least once.
+* `?` matches the preceeding character 0 or 1 times.  The character can be present or absent.
+* `{3}` matches the preceeding character exactly 3 times.  You can use a number other than 3.
+* `{3,}` matches the preceeding character at least 3 times.  You can use a number other than 3.
+* `{3,5}` matches the preceeding character between 3 and 5 times (3, 4, or 5 times).  You can substitute in other numbers.
+
+
+### EXERCISE 3
+
+Open the [blank example](regexr.com/5rddd).  
+
+1. Repeat the exercise above, but use a quantifier this time: Write a regular expression to find any 5 letter sequences starting with A and ending with n.  
+2. Find any sequences of the letter z.  Type in the chat the maximum number of times z is repeated in sequence.
+3. Find any sequences of 2 or more spaces (the character made by the space bar key on your keyboard).  
+4. CHALLENGE: write an expression that will match either male or female and no other words in the example text
+
+
+## Concept 4: Limiting Repetition
+
+The `*` and `+` quantifiers will match the maximum sequence possible.  We call this "greedy" matching.  If we want it to match the minimum sequence possible, while the regex still matches something if at all possible, then we can combine them with `?` to make the quantifiers "non-greedy": `*?` and `+?`.   
+
+For example, looking at this line of the astronaut example text: United States died male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]
+
+With greedy matching, the regex `A.+n` will match "Anderson (1959–2003), died on February 1, 2003, in".  It matches from the first A until the last n in the line.  
+
+What if we just want to match "Anderson"?  That's when we use a non-greedy quantifier.  `A.+?n` will match just "Anderson" -- it will stop the match at the first n that it finds.
+
+### EXERCISE 4:
+
+Open the [blank example](regexr.com/5rddd).  
+
+
+## Concept 5: Character Classes
+
+What if we want to be more general than a specific string, but more specific than matching anything with `.`?  We can use character classes.  
+
+There are a few pre-defined character classes:
+* `\s` whitespace (spaces, tabs `\t`, newlines `\n`)
+* `\S` NOT whitespace (everything else)
+* `\d` digits 0-9
+* `\D` NOT digits (everything else)
+* `\w` "word" characters: the definition can vary slightly, but basically letters (both cases) plus some in-word punctuation such as `-`
+* `\W` NOT word characters
+
+You can also define your own character classes by typing a set of characters inside `[]`.  For example `[abc]` would match a or b or c.  
+
+
+### EXERCISE 5
+
+Open the [blank example](regexr.com/5rddd).  
+
+1. Write an expression to find a digit followed by a comma `,`
+2. 
+
+
+
 
 ## Concept 6: Beginning and End
 
-### EXERCISE
+### EXERCISE 6
 
 
+
+## Answers
+
+If you want the answers for reference later (don't cheat during the workshop!), you can find them [here](part1_answers.html)
