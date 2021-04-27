@@ -84,7 +84,7 @@ In our example, our regular expression is "Soviet Union".  This will look for ex
 Open the [example](http://regexr.com/5rddd):
 
 1. Change the pattern to: `soviet union` - does it still match?
-2. Change the pattern to find female astronauts.  Type the number of female astronauts in the text in the chat.
+2. Change the pattern to find female astronauts.  Type the number of times "female" is found in the text in the chat.
 
 
 ## Concept 2: Match Anything
@@ -126,7 +126,7 @@ Quantifiers:
 Open the [blank example](regexr.com/5rddd).  
 
 1. Repeat the exercise above, but use a quantifier this time: Write a regular expression to find any 5 letter sequences starting with A and ending with n.  
-2. Find any sequences of the letter z.  Type in the chat the maximum number of times z is repeated in sequence.
+2. Find any sequences consisting of just the letter z.  Type in the chat the maximum number of times z is repeated in sequence.
 3. Find any sequences of 2 or more spaces (the character made by the space bar key on your keyboard).  
 
 CHALLENGE: write an expression that will match either male or female and no other words in the example text
