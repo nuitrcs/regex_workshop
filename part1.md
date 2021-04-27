@@ -68,7 +68,7 @@ We're going to use an online tool called RegExr to practice regular expressions.
 
 ![Image of tool](tool_tour.png)
 
-You can [open the tool](http://regexr.com/5rdpd) with the astronaut text and example loaded.
+You can [open the tool](http://regexr.com/5rddd) with the astronaut text loaded.
 
 In this tool, you type the regular expression in between `//`.  In Python and R, the regular expression will be an input to a function instead, so you'll express it as a string or a special raw string designed for use with regular expressions.  
 
@@ -81,7 +81,7 @@ In our example, our regular expression is "Soviet Union".  This will look for ex
 
 ### EXERCISE 1
 
-Go to the [example pattern](http://regexr.com/5rdpd):
+Open the [example](http://regexr.com/5rddd):
 
 1. Change the pattern to: `soviet union` - does it still match?
 2. Change the pattern to find female astronauts.  Type the number of female astronauts in the text in the chat.
@@ -99,7 +99,7 @@ What do we do then if we want to match an actual period in the text?  We need to
 
 ### EXERCISE 2
 
-Open the [blank example](regexr.com/5rddd).  
+Open the [blank example](http://regexr.com/5rddd).  
 
 1. Write a regular expression to find any substrings consisting of a capital A, followed by any character, followed by a lower case a.  For example, the regex should match both "Aca" and "Ada".  Type the last match in the chat.  
 2. Write a regular expression to find any 5 letter sequences starting with A and ending with n.  
