@@ -93,7 +93,7 @@ Now we're going to start to learn the metacharacters -- the characters that have
 
 The first one is a `.`, which we call "dot" when reading regular expressions out loud - it is the period/full stop/sentence terminator.  It matches any one single character EXCEPT the new line `\n`.  You can use multiple `.` in the same expression.
 
-What do we do then if we want to match an actual period in the text?  We need to escape the `.` to tell the regular expression processor not to treat it as a metacharacter.  We do this with a `\`: for example: `\.`.  This will then only match a `.`.
+What do we do then if we want to match an actual period in the text?  We need to escape the `.` to tell the regular expression processor not to treat it as a metacharacter.  We do this with a `\`: for example: `\.`  This will then only match a `.`
 
 *Advanced note: there's something called a "flag" that you can set to make `.` also match `\n`; the flag is generally called dotall.*  
 
