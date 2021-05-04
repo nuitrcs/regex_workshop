@@ -81,7 +81,7 @@ In our example, our regular expression is "Soviet Union".  This will look for ex
 
 ### EXERCISE 1
 
-Open the [example](http://regexr.com/5rddd):
+Open the [example](regexr.com/5rdpd):
 
 1. Change the pattern to: `soviet union` - does it still match?
 2. Change the pattern to find female astronauts.  Type the number of times "female" is found in the text in the chat.
@@ -142,7 +142,7 @@ With greedy matching, the regex `A.+n` will match "Anderson (1959–2003), died 
 
 What if we just want to match "Anderson"?  That's when we use a non-greedy quantifier.  `A.+?n` will match just "Anderson" -- it will stop the match at the first n that it finds.
 
-### EXERCISE 4:
+### EXERCISE 4
 
 Open the [blank example](regexr.com/5rddd).  
 
@@ -197,4 +197,4 @@ We've covered about 3/4 of the material at [RegexOne](https://regexone.com/).  I
 
 ## Answers
 
-If you want the answers to the above exercises for reference later (don't cheat during the workshop!), you can find them [here](part1_answers.html)
+If you want the answers to the above exercises for reference later (don't cheat during the workshop!), you can find them [here](part1_answers.html).
