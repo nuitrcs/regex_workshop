@@ -62,7 +62,7 @@ How do we get this into a format that we could use?
 
 ## Concept 1: Fixed Matches
 
-While we don't generally need regular expressions to match a specific string of text, we can use them that way.  For example, if we want to find all instances of "Soviet Union" in our astronaut list, then we can do that.  
+While we don't generally need regular expressions to match a specific string of text, we can use them that way.  For example, if we want to find all instances of `Soviet Union` in our astronaut list, then we can do that.  
 
 We're going to use an online tool called RegExr to practice regular expressions.  
 
@@ -77,7 +77,7 @@ Here, the "flags" are represented after the slash.  While you'll specify these d
 * global (g): find ALL matches in the text, not just the first one
 * case insensitive (i): if this flag is "on", then "a" matches both "a" and "A"; otherwise, matches are case sensitive
 
-In our example, our regular expression is "Soviet Union".  This will look for exact matches to these characters.
+In our example, our regular expression is `Soviet Union`.  This will look for exact matches to these characters.
 
 ### EXERCISE 1
 
@@ -95,13 +95,46 @@ The first one is a `.`, which we call "dot" when reading regular expressions out
 
 What do we do then if we want to match an actual period in the text?  We need to escape the `.` to tell the regular expression processor not to treat it as a metacharacter.  We do this with a `\`: for example: `\.`  This will then only match a `.`
 
-*Advanced note: there's something called a "flag" that you can set to make `.` also match `\n`; the flag is generally called dotall.*  
+*Advanced note: there's a flag that you can set to make `.` also match `\n`; the flag is generally called dotall.*  
+
+
+### Example
+
+Text:
+```
+The Cat in the Hat
+```
+
+Regular Expression: `..t`
+
+Matches:
+```
+Cat
+n t
+Hat
+```
+
+### Example
+
+Text:
+```
+It. is. wonderful. isn't it?
+```
+
+Regular Expression: ` is\.`
+
+Matches:
+```
+is.
+```
+
+
 
 ### EXERCISE 2
 
 Open the [blank example](http://regexr.com/5rddd).  
 
-1. Write a regular expression to find any substrings consisting of a capital A, followed by any character, followed by a lower case a.  For example, the regex should match both "Aca" and "Ada".  Type the last match in the chat.  
+1. Write a regular expression to find any substrings consisting of a capital A, followed by any character, followed by a lower case a.  For example, the regex should match both `Aca` and `Ada`.  Type the last match in the chat.  
 2. Write a regular expression to find any 5 letter sequences starting with A and ending with n.  
 3. Write an expression to find actual period marks in the text.  How many are there?  Put the answer in the chat.  
 
@@ -120,38 +153,86 @@ Quantifiers:
 * `{3,}` matches the preceeding character at least 3 times.  You can use a number other than 3.
 * `{3,5}` matches the preceeding character between 3 and 5 times (3, 4, or 5 times).  You can substitute in other numbers.
 
+When there are multiple matches, you get the longest possible match by default.  You also only get non-overlapping matches.
+
+
+### Example
+
+Text:
+```
+The bee goes buzz buzzz buzzzz...
+```
+
+Regular Expression: `z+`
+
+Matches:
+```
+zz
+zzz
+zzzz
+```
+
+Regular Expression: `z{2} `
+
+Matches:
+```
+zz
+zz
+zz
+zz
+```
+
+Yes, there are 4 matches -- can you find them?  You get non-overlapping matches
+
+
+Regular Expression: `b.+z`
+
+Matches:
+```
+bee goes buzz buzzz buzzzz
+```
+
+Regular Expression: `buzzz?`
+
+Matches:
+```
+buzz
+buzzz
+buzzz
+```
+
+
 
 ### EXERCISE 3
 
 Open the [blank example](regexr.com/5rddd).  
 
 1. Repeat the exercise above, but use a quantifier this time: Write a regular expression to find any 5 letter sequences starting with A and ending with n.  
-2. Find any sequences consisting of just the letter z.  Type in the chat the maximum number of times z is repeated in sequence.
-3. Find any sequences of 2 or more spaces (the character made by the space bar key on your keyboard).  
+2. Find any sequences of 2 or more spaces (the character made by the space bar key on your keyboard).  
 
-CHALLENGE: write an expression that will match either male or female and no other words in the example text
+CHALLENGE: write an expression that will match either `male` or `female` and no other words in the example text.
 
 
 ## Concept 4: Limiting Repetition
 
 The `*` and `+` quantifiers will match the maximum sequence possible.  We call this "greedy" matching.  If we want it to match the minimum sequence possible, while the regex still matches something if at all possible, then we can combine them with `?` to make the quantifiers "non-greedy": `*?` and `+?`.   
 
-For example, looking at this line of the astronaut example text: United States died male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]
+For example, looking at this line of the astronaut example text: `United States died male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]`
 
-With greedy matching, the regex `A.+n` will match "Anderson (1959–2003), died on February 1, 2003, in".  It matches from the first A until the last n in the line, skipping over other "n"s.  This is the "greedy" behavior of `+` -- to match as much as possible and still have the entire expression match.  
+With greedy matching, the regex `A.+n` will match `Anderson (1959–2003), died on February 1, 2003, in`.  It matches from the first A until the last n in the line, skipping over other "n"s.  This is the "greedy" behavior of `+` -- to match as much as possible and still have the entire expression match.  
 
-What if we just want to match "Anderson"?  That's when we use a non-greedy quantifier.  `A.+?n` will match just "Anderson" -- it will stop the match at the first n that it finds.
+What if we just want to match `Anderson`?  That's when we use a non-greedy quantifier.  `A.+?n` will match just `Anderson` -- it will stop the match at the first n that it finds.
 
 ### EXERCISE 4
 
 Open the [blank example](regexr.com/5rddd).  
 
-Write an expression using a non-greedy quantifier that matches both "United States" and "United Arab Emirates" and no other words in the astronaut text.
+Write an expression using a non-greedy quantifier that matches both `United States` and `United Arab Emirates` and no other words in the astronaut text.
 
 
 ## Concept 5: Character Classes
 
-What if we want to be more general than a specific string, but more specific than matching anything with `.`?  We can use character classes.  
+What if we want to be more general than a fixed string, but more specific than matching anything with `.`?  We can use character classes.  
 
 There are a few pre-defined character classes:
 * `\s` whitespace (spaces, tabs `\t`, newlines `\n`)
@@ -160,12 +241,35 @@ There are a few pre-defined character classes:
 * `\D` NOT digits (everything else)
 * `\w` "word" characters: the definition can vary slightly, but basically letters (both cases) plus some in-word punctuation such as `-`
 * `\W` NOT word characters
+* 
+Each of these matches a single character in the text that fits the criteria.  For example, `\d` matched against `1234` matches `1`, `2`, `3`, and `4` separately.
 
-Each of these matches a single character in the text that fits the criteria.  For example, `\d` matched against "1234" matches "1, "2", "3", and "4" separately.
-
-You can also define your own character groups by typing a set of characters inside `[]`.  For example `[abc]` would match a or b or c.  The bracketted set of characters only matches one character at a time.  So the first match of `[act]` to "cat" is only "c".  Character groups and classes can be combined with quantifiers; remember that the quantifier affects whatever is immediately before it -- a single character, a character class, or a character group.  So `[act]+` applied to "cat" would match all of "cat".  
+You can also define your own character groups by typing a set of characters inside `[]`.  For example `[abc]` would match a or b or c.  The bracketted set of characters only matches one character at a time.  So the first match of `[act]` to `cat` is only `c`.  Character groups and classes can be combined with quantifiers; remember that the quantifier affects whatever is immediately before it -- a single character, a character class, or a character group.  So `[act]+` applied to `cat` would match all of `cat`.  
 
 Remember: unless otherwise specified, regular expressions are case-sensitive.  This means "c" and "C" are different characters as part of a character group in `[]`.  
+
+### Example
+
+Text:
+```
+You have good decision-making skills.
+```
+
+Regular Expression: `d\w+`
+
+Matches:
+```
+decision-making
+```
+
+Regular Expression: `\w{4}\s\w{4}`
+
+Matches:
+```
+have good
+king skil
+```
+
 
 
 ### EXERCISE 5
@@ -173,9 +277,9 @@ Remember: unless otherwise specified, regular expressions are case-sensitive.  T
 Open the [blank example](regexr.com/5rddd).  
 
 1. Write an expression to find a digit followed by a comma `,`
-2. Use a character class to write an expression to match both "moon" and "Moon" - type how many times the word appears in the chat.
+2. Use a character class to write an expression to match both `moon` and `Moon` - type how many times the word appears in the chat.
 
-CHALLENGE: Write an expression to find all capitalized words in the example text.  The expression should only match the letters in the word and not include any spaces before or after it.  You probably want to include the character class for word characters noted above.  The answer would also match parts of strings where the capital letter isn't at the start (e.g. "elNiri"), but there aren't any cases like that in our example data, so we won't worry about that!  (We'll learn how to actually deal with word boundaries in Part 2).  
+CHALLENGE: Write an expression to find all capitalized words in the example text.  The expression should only match the letters in the word and not include any spaces before or after it.  You probably want to include the character class for word characters noted above.  The answer would also match parts of strings where the capital letter isn't at the start (e.g. "elNiri"), but there aren't any cases like that in our example data, so we won't worry about that!  We'll learn how to actually deal with word boundaries in Part 2.  
 
 
 
