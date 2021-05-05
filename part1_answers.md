@@ -19,7 +19,7 @@ It should be found 3 times -- there are only two distinct female astronauts in t
 
 Open the [blank example](regexr.com/5rddd).  
 
-1. Write a regular expression to find any substrings consisting of a capital A, followed by any character, followed by a lower case a.  For example, the regex should match both "Aca" and "Ada".  Type the last match in the chat.  
+1. Write a regular expression to find any substrings consisting of a capital A, followed by any character, followed by a lower case a.  For example, the regex should match both `Aca` and `Ada`.  Type the last match in the chat.  
 
 `A.a`
 
@@ -42,28 +42,22 @@ Open the [blank example](regexr.com/5rddd).
 
 `A.{3}n`
 
-2. Find any sequences consisting of just the letter z.  Type in the chat the maximum number of times z is repeated in sequence.
 
-`z+`
-
-"z" appears at most twice in a row, "zz", in "Buzz" and "Hazza"
-
-
-3. Find any sequences of 2 or more spaces (the character made by the space bar key on your keyboard).  
+2. Find any sequences of 2 or more spaces (the character made by the space bar key on your keyboard).  
 
 ` {2,}`
 
-CHALLENGE: write an expression that will match either male or female and no other words in the example text
+CHALLENGE: write an expression that will match either `male` or `female` and no other words in the example text
 
 `f?e?male`
 
-The `?` makes the letter before it optional.  The expression above would also match "fmale" or "emale" but since those aren't in our text, we won't worry about them.  
+The `?` makes the letter before it optional.  The expression above would also match `fmale` or `emale` but since those aren't in our text, we won't worry about them.  
 
-## EXERCISE 4:
+## EXERCISE 4
 
 Open the [blank example](regexr.com/5rddd).  
 
-Write an expression using a non-greedy quantifier that matches both "United States" and "United Arab Emirates" and no other words in the astronaut text.
+Write an expression using a non-greedy quantifier that matches both `United States` and `United Arab Emirates` and no other words in the astronaut text.
 
 `United.+?s`
 
@@ -78,7 +72,7 @@ Open the [blank example](regexr.com/5rddd).
 
 `\d,`
 
-2. Use a character class to write an expression to match both "moon" and "Moon" - type how many times the word appears in the chat.
+2. Use a character class to write an expression to match both `moon` and `Moon` - type how many times the word appears in the chat.
 
 `[mM]oon`
 
