@@ -121,7 +121,7 @@ Text:
 It. is. wonderful. isn't it?
 ```
 
-Regular Expression: `is\\.`
+Regular Expression: `is\.`
 
 Matches:
 ```
