@@ -121,7 +121,7 @@ Text:
 It. is. wonderful. isn't it?
 ```
 
-Regular Expression: ` is\.`
+Regular Expression: `is\\.`
 
 Matches:
 ```
@@ -217,11 +217,32 @@ CHALLENGE: write an expression that will match either `male` or `female` and no 
 
 The `*` and `+` quantifiers will match the maximum sequence possible.  We call this "greedy" matching.  If we want it to match the minimum sequence possible, while the regex still matches something if at all possible, then we can combine them with `?` to make the quantifiers "non-greedy": `*?` and `+?`.   
 
-For example, looking at this line of the astronaut example text: `United States died male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]`
+### Example
 
-With greedy matching, the regex `A.+n` will match `Anderson (1959–2003), died on February 1, 2003, in`.  It matches from the first A until the last n in the line, skipping over other "n"s.  This is the "greedy" behavior of `+` -- to match as much as possible and still have the entire expression match.  
+Text (from the Astronaut example):
+```
+United States died male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]
+```
 
-What if we just want to match `Anderson`?  That's when we use a non-greedy quantifier.  `A.+?n` will match just `Anderson` -- it will stop the match at the first n that it finds.
+Regular expression: `A.+n`  (greedy matching)
+
+Matches:
+```
+Anderson (1959–2003), died on February 1, 2003, in
+```
+
+It matches from the first A until the last n in the line, skipping over other "n"s.  This is the "greedy" behavior of `+` -- to match as much as possible and still have the entire expression match.  
+
+What if we just want to match `Anderson`?  That's when we use a non-greedy quantifier.
+
+Regular expression: `A.+?n`  (non-greedy matching)
+
+Matches:
+```
+Anderson
+```
+
+It will stop the match at the first "n" that it finds.
 
 ### EXERCISE 4
 
@@ -292,7 +313,23 @@ Ranges can be combined by just typing them next to each other.  For example, all
 
 ## Bonus Concept: Opposite of Character Groups
 
-By including a `^` as the first character inside a character group, it makes the expression mean everything EXCEPT the characters in the group.  For example, `[^abc]` matched against "bat" matches "t".  "b" and "a" are both in the character group, but the `^` defines the character group to be anything EXCEPT "a", "b", or "c".
+By including a `^` as the first character inside a character group, it makes the expression mean everything EXCEPT the characters in the group.  
+
+### Example
+
+Text:
+```
+bat
+```
+
+Regular Expression: `[^abc]` 
+
+Matches:
+```
+t
+```
+
+"b" and "a" are both in the character group, but the `^` defines the character group to be anything EXCEPT "a", "b", or "c".
 
 
 ## Additional Practice/Review
