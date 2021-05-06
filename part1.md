@@ -1,3 +1,5 @@
+## Part 1
+
 These materials are for the first part of the regular expression workshop.
 
 You may find [this cheatsheet](https://paulvanderlaken.files.wordpress.com/2017/08/davechild_regular-expressions.pdf) to be a useful reference.
@@ -260,7 +262,7 @@ There are a few pre-defined character classes:
 * `\S` NOT whitespace (everything else)
 * `\d` digits 0-9
 * `\D` NOT digits (everything else)
-* `\w` "word" characters: the definition can vary slightly, but basically letters (both cases) plus some in-word punctuation such as `-`
+* `\w` "word" characters: the definition can vary slightly, but basically letters (both cases), digits, and underscore 
 * `\W` NOT word characters
 * 
 Each of these matches a single character in the text that fits the criteria.  For example, `\d` matched against `1234` matches `1`, `2`, `3`, and `4` separately.
