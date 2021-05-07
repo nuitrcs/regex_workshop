@@ -271,6 +271,8 @@ You can also define your own character groups by typing a set of characters insi
 
 Remember: unless otherwise specified, regular expressions are case-sensitive.  This means "c" and "C" are different characters as part of a character group in `[]`.  
 
+*Note: On the [cheat sheet](https://paulvanderlaken.files.wordpress.com/2017/08/davechild_regular-expressions.pdf), you'll see a POSIX section.  In some implementations of regular expressions, instead of using `\d` for digits, you'd use `[:digit:]`.  Similar for other character classes.*
+
 ### Example
 
 Text:
@@ -282,7 +284,7 @@ Regular Expression: `d\w+`
 
 Matches:
 ```
-decision-making
+decision
 ```
 
 Regular Expression: `\w{4}\s\w{4}`
