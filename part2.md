@@ -7,7 +7,8 @@ You may find [this cheatsheet](https://paulvanderlaken.files.wordpress.com/2017/
 ## Example Text
 
 We are going to continue to work with text copied from a [list of astronauts on Wikipedia](https://en.wikipedia.org/wiki/List_of_space_travelers_by_name
-): 
+) that we used in Part 1](part1.html)
+: 
 
 ```
     United States male Joseph M. Acaba
@@ -71,12 +72,53 @@ With the word boundary `\b` at the beginning of the expression, it only matches 
 
 Open the [blank example](regexr.com/5rddd). 
 
-Write a regular expression to find all words that end in a `y`.  Have your expression match the entire word, not just the ending `y`.  Hint: recall `\w` will match any "word" characters, which may help for capturing the first part of the word that isn't "y". 
+Write a regular expression to find all words that end in a `y`.  Have your expression match the entire word, not just the ending `y`.  Hint: recall `\w` will match any "word" characters, which may help for capturing the first part of the word that isn't "y".  Need a refresher on how to represent [repetition](part1.html#concept-3-repetition)?
 
 
 ## Concept 2: Beginning and End of Lines
 
+Similar to how we can match the beginning and end of words, we can also match the beginning `^` and end `$` of lines.  
+
+There are two definitions of "line" that you may encounter.  By default, a line is the full text you are matching against.  `^` matches the beginning of the full text you're matching against, and `$` is the end of the full text you're matching against.
+
+With the "multiline" flag, you can instead specify a line is terminated by `\n`, so there can be multiple lines in the text you're matching.  
+
+*Note: line endings are actually a bit more complicated than this.  On Windows systems, when you type ente/return, you actually get `\r\n`; with Mac/Unix, you just get `\n`.  The `\r` is a carriage return (CR).  The `\n` is a line feed (LF).  In either case, `\n` is the last character, but with Windows, there may also be a `\r`. You might see `\r\n` noted as CRLF, and `\n` as LF.*
+
+### Example
+
+Text:
+```
+This is line 1
+This is line 2
+This is line 3
+```
+
+Regular Expression: `.$`, **without** the multiline flag
+
+Matches:
+```
+3
+```
+
+Regular Expression: `.$`, **WITH** the multiline flag
+
+Matches:
+```
+1
+2
+3
+```
+
 ### EXERCISE 2
+
+Open the [blank example](regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
+
+Write a regular expression to match any number of spaces (0 or more) at the beginning of each line of the text.  
+
+Spaces are visualized in the text in the RegExr tool with a circle.  
+
+Hint: Need a refresher on how to represent [repetition](part1.html#concept-3-repetition)?  
 
 ## Concept 3: Groups
 
