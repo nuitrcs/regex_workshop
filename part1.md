@@ -338,6 +338,8 @@ t
 
 We've covered about 3/4 of the material at [RegexOne](https://regexone.com/).  It's a good resource to review the above concepts and try some additional exercises.
 
+Also, check out our [resource guide for free, online learning resources](https://sites.northwestern.edu/researchcomputing/2021/03/04/online-learning-resources-regular-expressions/).
+
 ## Answers
 
 If you want the answers to the above exercises for reference later (don't cheat during the workshop!), you can find them [here](part1_answers.html).
