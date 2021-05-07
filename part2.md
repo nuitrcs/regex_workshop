@@ -74,6 +74,8 @@ Open the [blank example](regexr.com/5rddd).
 
 Write a regular expression to find all words that end in a `y`.  Have your expression match the entire word, not just the ending `y`.  Hint: recall `\w` will match any "word" characters, which may help for capturing the first part of the word that isn't "y".  Need a refresher on how to represent [repetition](part1.html#concept-3-repetition)?
 
+Type the last word that you match in the chat when you're done.
+
 
 ## Concept 2: Beginning and End of Lines
 
@@ -122,7 +124,71 @@ Hint: Need a refresher on how to represent [repetition](part1.html#concept-3-rep
 
 ## Concept 3: Groups
 
-### EXERCISE 3
+With regular expressions, we can go beyond matching text to extracting or changing text.  When doing that, sometimes it's helpful to retrieve or identify only part of an expression, rather that the whole thing.  For example, if you want to capture text between html tags, without including the html tags.  Or information inside parentheses.  Or part of a filename.  
+
+We denote a group with parentheses `()`.  
+
+This means that if we want to match an actual `(` or `)` in the text, we'll need to escape it: `\(` or `\)`.  
+
+We'll get into more detail on this shortly, but each group we include in the regular expression gets a number, starting with 1.  We can use these numbers to refer to the text that each group matches.
+
+### Example
+
+Text:
+```
+Dayton, OH
+Chicago, IL
+Washington, DC
+San Francisco, CA
+```
+
+Regular Expression: `, ([A-Z]{2})`
+
+The **entire expression** matches:
+```
+, OH
+, IL
+, DC
+, CA
+```
+
+*Note: The regular expression above requires capital letters to make sure we're matching a state abbreviation.  But this more general regular expression would also work: `, (.{2})` (match any two characters after a comma and space) or even `, (.+)` (match 1 or more characters after a comma and a space).  Which regular expression is appropriate will depend on the specific text you're matching, and sometimes it takes some trial and error to make an expression specific enough or general enough to match everything that you want, but only what you want.*
+
+The **group** (in parentheses) matches:
+```
+OH
+IL
+DC
+CA
+```
+
+
+### EXERCISE 3A
+
+
+Open the [blank example](regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
+
+To see the results of the group match, instead of the entire expression, in the bottom, change `$&\n` to `$1\n`.  The `1` is for the first group in the expression you'll write.
+
+Recall that before we wrote a regular expression to match the spaces at the beginning of the line: `^ +`
+
+Now write a regular expression that includes a group to capture the first letter that appears after those spaces at the beginning of the line.
+
+
+### EXERCISE 3B
+
+Open the [blank example](regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
+
+To see the results of the group match, instead of the entire expression, in the bottom, change `$&\n` to `$1\n`.  The `1` is for the first group in the expression you'll write.
+
+Recall that we've written two regular expressions before:
+
+* Match spaces at the beginning of the line: `^ +`
+* Match male or female (challenge from Part 1): `f?e?male`
+
+Using these components, we want to write a regular expression to capture the name of the country in each line.  The country name comes after the beginning of the line and the spaces, and before a space and then male or female.  Combine these components with a new part of a regular expression that includes a group to capture the name of the country.  Goal: regular expression that includes a group (in `()`) that will capture the name of the country.
+
+Hint: You'll probably want a non-greedy quantifier: `.+?` will match 1 or more characters, until the next part of the expression matches.  
 
 ## Concept 4:
 
@@ -131,3 +197,7 @@ Hint: Need a refresher on how to represent [repetition](part1.html#concept-3-rep
 ## Concept 5:
 
 ### EXERCISE 5
+
+## Learning More
+
+What to learn more about regular expressions?  Check out our [resource guide for free, online learning resources](https://sites.northwestern.edu/researchcomputing/2021/03/04/online-learning-resources-regular-expressions/).
