@@ -341,6 +341,8 @@ We've covered about 3/4 of the material at [RegexOne](https://regexone.com/).  I
 
 Also, check out our [resource guide for free, online learning resources](https://sites.northwestern.edu/researchcomputing/2021/03/04/online-learning-resources-regular-expressions/).
 
+Next up in this series: [Part 2](part2.html)
+
 ## Answers
 
 If you want the answers to the above exercises for reference later (don't cheat during the workshop!), you can find them [here](part1_answers.html).
