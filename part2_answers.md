@@ -96,15 +96,17 @@ Fair warning: we're going to have to put together lots of pieces we've learned i
 There are two types of lines in the text:
 
 * Ones with 4 spaces, then country, space, male/female, space, name, end of the line
-* Ones with the same parts above, followed by a space, then either a ` (` (space then opening parenthesis) or `, ` (comma then space) and additional information
+* Ones with the info we want, followed by a space, then the either space and `(` or `,` and space and other info
 
-To build up a larger expression, first write a regular expression that will match ` (` or `, `, and then any amount of text after that.  Make sure the multiline flag is turned on.
+To build up a larger expression, first **write a regular expression that will match a space then `(` or `,` then a space, and then any amount of text after that.**  Make sure the multiline flag is turned on.
 
 Hint: to match any amount of text, use `.*`.  
 
 `(, | \().*`
 
 #### Part 2
+
+Putting it all together: **write a regex to extract country, male/female, and name from each line and turn them into comma separated values.**
 
 Since the expression above doesn't match every line, we also need to account for cases where the name is followed by the end of line `$`.  Add `$` to your "or" expression above to allow for this possibility.  For example, if your "or" expression above was `(____|____)`, then you should make it: `($|____|____)` 
 
