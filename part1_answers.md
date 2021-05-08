@@ -45,7 +45,7 @@ Open the [blank example](regexr.com/5rddd).
 
 2. Find any sequences of 2 or more spaces (the character made by the space bar key on your keyboard).  
 
-<code> {2,}</code>
+<pre> {2,}</pre>
 
 CHALLENGE: write an expression that will match either `male` or `female` and no other words in the example text
 
