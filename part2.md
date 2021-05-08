@@ -1,14 +1,15 @@
 ## Regular Expressions Workshop: Part 2
 
-These materials are for part 2 of the regular expressions workshop.  [Part 1 materials](part1.html)
+These materials are for part 2 of the regular expressions workshop.  
+
+[Part 1 materials](part1.html)
 
 You may find [this cheatsheet](https://paulvanderlaken.files.wordpress.com/2017/08/davechild_regular-expressions.pdf) to be a useful reference.
 
 ## Example Text
 
 We are going to continue to work with text copied from a [list of astronauts on Wikipedia](https://en.wikipedia.org/wiki/List_of_space_travelers_by_name
-) that we used in Part 1](part1.html)
-: 
+) that we used in [Part 1](part1.html): 
 
 ```
     United States male Joseph M. Acaba
@@ -48,7 +49,7 @@ We are going to continue to work with text copied from a [list of astronauts on 
 
 ## Concept 1: Word Boundaries
 
-In [Part 1](part1.html), we wrote some regular expressions that matched across words.  Sometimes, we can use spaces to denote the edges of words, but what about cases where a word is followed by punctuation, or when a word starts a line of text?  Luckily, we have a way to indicate a word boundary: `\b`.  This doesn't match a specific character.  Instead, it matches any transition between word (`\w`) and non-word (`\W`) characters.  Recall from last time that word characters are letters, digits, and underscores (it gets more complicated with non-ASCII text, but the same concept applies).
+In [Part 1](part1.html), we wrote some regular expressions that matched across words or in the middle of words.  Sometimes, we can use spaces to denote the edges of words, but what about cases where a word is followed by punctuation, or when a word starts a line of text?  Luckily, we have a way to indicate a word boundary: `\b`.  This doesn't match a specific character.  Instead, it matches any transition between word (`\w`) and non-word (`\W`) characters.  Recall from last time that word characters are letters, digits, and underscores (it gets more complicated with non-ASCII text, but the same concept applies).
 
 ### Example
 
@@ -169,9 +170,9 @@ Open the [blank example](regexr.com/5rddd).  Under the "Flags" menu in the upper
 
 To see the results of the group match, instead of the entire expression, in the bottom, change `$&\n` to `$1\n`.  The `1` is for the first group in the expression you'll write.
 
-Recall that before we wrote a regular expression to match the spaces at the beginning of the line: `^ *`
+Recall that `^ *` matched the spaces at the beginning of the line.
 
-Now write a regular expression that includes a group to capture the first letter that appears after those spaces at the beginning of the line.
+Now **write a regular expression that includes a group to capture the first letter that appears after those spaces at the beginning of the line**.
 
 
 ### EXERCISE 3B
@@ -185,13 +186,13 @@ Recall that we've written two regular expressions before:
 * Match spaces at the beginning of the line: `^ *`
 * Match male or female (challenge from Part 1): `f?e?male`
 
-Using these components, we want to **write a regular expression to capture the name of the country in each line.**  The country name comes after the beginning of the line and the spaces, and before a space and then male or female.  Combine these components with a new part of a regular expression that includes a group to capture the name of the country.  Goal: regular expression that includes a group (in `()`) that will capture the name of the country.
+Using these components, we want to **write a regular expression to capture the name of the country in each line with a group.**  The country name comes after the beginning of the line and the spaces, and before a space and then male or female.  Combine these components with a new part of a regular expression that includes a group to capture the name of the country.  
 
 Hint: You'll probably want a non-greedy quantifier: `.+?` will match 1 or more characters, until the next part of the expression matches.  
 
 ## Concept 4: Substitutions
 
-Groups are also useful when you want to change or replace text (called a substitution or sub in most systems), rather than just extracting it.  Instead of just writing an expression to match text, you also need to write an expression of what to replace the text with.  You can reference the text matched by groups by number -- the groups are numbered from left to right in the expression.  The group references typically use either `$1` or `\1` as reference to the first group.  Whether it's a `$` or `\` depends on the system.  Python and R use `\#` to refer to groups.
+Groups are also useful when you want to change or replace text (or substite, or sub for short), rather than just extracting it.  Instead of just writing an expression to match text, you also need to write an expression of what to replace the text with.  You can reference the text matched by groups by number -- the groups are numbered from left to right in the expression.  The group references typically use either `$1` or `\1` as reference to the first group.  Whether it's a `$` or `\` depends on the system.  Python and R use `\#` to refer to groups (where `#` is the number of the group).
 
 In the RegExr tool we're using here, we use `$#` to refer to a group:
 
@@ -257,13 +258,15 @@ Fair warning: we're going to have to put together lots of pieces we've learned i
 There are two types of lines in the text:
 
 * Ones with 4 spaces, then country, space, male/female, space, name, end of the line
-* Ones with the same parts above, followed by a space, then either a ` (` (space then opening parenthesis) or `, ` (comma then space) and additional information
+* Ones with the info we want, followed by a space, then the either space and `(` or `,` and space and other info
 
-To build up a larger expression, first write a regular expression that will match ` (` or `, `, and then any amount of text after that.  Make sure the multiline flag is turned on.
+To build up a larger expression, first **write a regular expression that will match a space then `(` or `,` then a space, and then any amount of text after that.**  Make sure the multiline flag is turned on.
 
 Hint: to match any amount of text, use `.*`.  
 
 #### Part 2
+
+Putting it all together: **write a regex to extract country, male/female, and name from each line and turn them into comma separated values.**
 
 Since the expression above doesn't match every line, we also need to account for cases where the name is followed by the end of line `$`.  Add `$` to your "or" expression above to allow for this possibility.  For example, if your "or" expression above was `(____|____)`, then you should make it: `($|____|____)` 
 
