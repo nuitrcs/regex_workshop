@@ -12,7 +12,7 @@ Open the [example](http://regexr.com/5rddd):
 
 `female`
 
-It should be found 3 times -- there are only two distinct female astronauts in the list though.
+It should be found 2 times 
 
 
 ## EXERCISE 2
