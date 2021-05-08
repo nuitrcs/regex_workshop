@@ -21,7 +21,7 @@ For example, if we're working with tweets:
 How do we get the links or hash tags out?  We know there are links and hash tags.  We can identify them with `@` or `#`, which provides some structure.  But the content (the specific link or hash tag) differs.
 
 The data we're going to work with is copied from a [list of astronauts from Wikipedia](https://en.wikipedia.org/wiki/List_of_space_travelers_by_name
-): 
+) with a few minor edits: 
 
 ```
     United States male Joseph M. Acaba
@@ -33,7 +33,7 @@ The data we're going to work with is copied from a [list of astronauts from Wiki
     Japan male Toyohiro Akiyama, the first business-sponsored hi space traveler and the first Japanese person in space
     Soviet Union male Vladimir Aksyonov
     Saudi Arabia male Sultan Salman Al Saud, first Saudi Arabian in space, only royal person in space, first Middle Eastern person in space
-    United States moonwalked male Buzz Aldrin, flew on Apollo 11; second person to walk on the Moon
+    United States male Buzz Aldrin, moonwalked, flew on Apollo 11; second person to walk on the Moon
     Bulgaria male Aleksandr Panayotov Aleksandrov
     Soviet Union male Aleksandr Pavlovich Aleksandrov
     United States male Andrew M. Allen
@@ -42,13 +42,13 @@ The data we're going to work with is copied from a [list of astronauts from Wiki
     United States male Scott Altman
     United States male William Anders, first Asian-born person in space (born in Hong Kong, but an American citizen)
     United States male Clayton Anderson
-    United States died male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]
+    United States male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]
     (Claudie André-Deshays – see Claudie Haigneré)
-    Iran United States female Anousheh Ansari, fourth spaceflight participant and first female spaceflight participant, first woman of Muslim descent in space, and first Iranian in space
+    Iran United States female Anousheh Ansari, fourth spaceflight participant, first woman of Muslim descent in space, and first Iranian in space
     United States male Dominic A. Antonelli
     United States male Jerome Apt
     United States male Lee Archambault
-    United States moonwalked male Neil Armstrong (1930–2012), flew on Apollo 11; first person to walk on the Moon[8]
+    United States male Neil Armstrong (1930–2012), moonwalked, flew on Apollo 11; first person to walk on the Moon[8]
     United States male Richard R. Arnold
     Russia male Oleg Artemyev
     Soviet Union male Anatoly Artsebarsky
