@@ -30,7 +30,6 @@ We are going to continue to work with text copied from a [list of astronauts on 
     United States male William Anders, first Asian-born person in space (born in Hong Kong, but an American citizen)
     United States male Clayton Anderson
     United States male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]
-    (Claudie André-Deshays – see Claudie Haigneré)
     Iran United States female Anousheh Ansari, fourth spaceflight participant, first woman of Muslim descent in space, and first Iranian in space
     United States male Dominic A. Antonelli
     United States male Jerome Apt
