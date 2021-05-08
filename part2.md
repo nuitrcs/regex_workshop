@@ -285,6 +285,8 @@ Japan,male,Toyohiro Akiyama
 
 Yay! We now have our astronaut list looking like a data set with structure and variables instead of just text.  The final expression was pretty complicated, but if you break down each part, you know what everything means.  
 
+Regular expressions take trial and error.  They require a balance between specificity and generality to match all of what you want, but only what you want.  This balance can change with different pieces of text, such that a regular expression that works on one piece of text might not work on another.  
+
 ## Additional Practice/Review
 
 [RegexOne](https://regexone.com/) is a good resource to review the above concepts and try some additional exercises.
