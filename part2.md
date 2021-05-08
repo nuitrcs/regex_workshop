@@ -20,7 +20,7 @@ We are going to continue to work with text copied from a [list of astronauts on 
     Japan male Toyohiro Akiyama, the first business-sponsored hi space traveler and the first Japanese person in space
     Soviet Union male Vladimir Aksyonov
     Saudi Arabia male Sultan Salman Al Saud, first Saudi Arabian in space, only royal person in space, first Middle Eastern person in space
-    United States moonwalked male Buzz Aldrin, flew on Apollo 11; second person to walk on the Moon
+    United States male Buzz Aldrin, moonwalked, flew on Apollo 11; second person to walk on the Moon
     Bulgaria male Aleksandr Panayotov Aleksandrov
     Soviet Union male Aleksandr Pavlovich Aleksandrov
     United States male Andrew M. Allen
@@ -29,13 +29,13 @@ We are going to continue to work with text copied from a [list of astronauts on 
     United States male Scott Altman
     United States male William Anders, first Asian-born person in space (born in Hong Kong, but an American citizen)
     United States male Clayton Anderson
-    United States died male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]
+    United States male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]
     (Claudie André-Deshays – see Claudie Haigneré)
-    Iran United States female Anousheh Ansari, fourth spaceflight participant and first female spaceflight participant, first woman of Muslim descent in space, and first Iranian in space
+    Iran United States female Anousheh Ansari, fourth spaceflight participant, first woman of Muslim descent in space, and first Iranian in space
     United States male Dominic A. Antonelli
     United States male Jerome Apt
     United States male Lee Archambault
-    United States moonwalked male Neil Armstrong (1930–2012), flew on Apollo 11; first person to walk on the Moon[8]
+    United States male Neil Armstrong (1930–2012), moonwalked, flew on Apollo 11; first person to walk on the Moon[8]
     United States male Richard R. Arnold
     Russia male Oleg Artemyev
     Soviet Union male Anatoly Artsebarsky
@@ -170,7 +170,7 @@ Open the [blank example](regexr.com/5rddd).  Under the "Flags" menu in the upper
 
 To see the results of the group match, instead of the entire expression, in the bottom, change `$&\n` to `$1\n`.  The `1` is for the first group in the expression you'll write.
 
-Recall that before we wrote a regular expression to match the spaces at the beginning of the line: `^ +`
+Recall that before we wrote a regular expression to match the spaces at the beginning of the line: `^ *`
 
 Now write a regular expression that includes a group to capture the first letter that appears after those spaces at the beginning of the line.
 
@@ -179,14 +179,14 @@ Now write a regular expression that includes a group to capture the first letter
 
 Open the [blank example](regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
 
-To see the results of the group match, instead of the entire expression, in the bottom, change `$&\n` to `$1\n`.  The `1` is for the first group in the expression you'll write.
+To see the results of the group match in the bottom, , instead of the entire expression, change `$&\n` to `$1\n`.  The `1` is for the first group in the expression you'll write.
 
 Recall that we've written two regular expressions before:
 
-* Match spaces at the beginning of the line: `^ +`
+* Match spaces at the beginning of the line: `^ *`
 * Match male or female (challenge from Part 1): `f?e?male`
 
-Using these components, we want to write a regular expression to capture the name of the country in each line.  The country name comes after the beginning of the line and the spaces, and before a space and then male or female.  Combine these components with a new part of a regular expression that includes a group to capture the name of the country.  Goal: regular expression that includes a group (in `()`) that will capture the name of the country.
+Using these components, we want to **write a regular expression to capture the name of the country in each line.**  The country name comes after the beginning of the line and the spaces, and before a space and then male or female.  Combine these components with a new part of a regular expression that includes a group to capture the name of the country.  Goal: regular expression that includes a group (in `()`) that will capture the name of the country.
 
 Hint: You'll probably want a non-greedy quantifier: `.+?` will match 1 or more characters, until the next part of the expression matches.  
 
@@ -204,7 +204,7 @@ In the example above, we have two groups in the regular expression at the top: o
 
 Open the [blank example](regexr.com/5rddd). Click on Replace for the bottom tab so that you can substitute or replace text.  Turn on the multiline flag.
 
-Enter this regular expression: `^ +(.+?) (f?e?male)`
+Enter this regular expression: `^ *(.+?) (f?e?male)`
 
 Write a replacement expression so that the first few lines of output look like the following, with the name of the country, followed by a colon and space, and then the rest of the information from each line, minus male/female.
 
