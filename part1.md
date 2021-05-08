@@ -70,9 +70,9 @@ We're going to use an online tool called RegExr to practice regular expressions.
 
 ![Image of tool](tool_tour.png)
 
-You can [open the tool](http://regexr.com/5rddd) with the astronaut text loaded.
+You can [open the tool](http://regexr.com/5rddd) with the astronaut text loaded.  Click on the List open for the bottom pane to see the match results.
 
-In this tool, you type the regular expression in between `//`.  In Python and R, the regular expression will be an input to a function instead, so you'll express it as a string or a special raw string designed for use with regular expressions.  
+In this tool, you type the regular expression in between `//` at the top.  In Python and R, the regular expression will be an input to a function instead, so you'll express it as a string or a special raw string designed for use with regular expressions.  
 
 Here, the "flags" are represented after the slash.  While you'll specify these differently in other languages, the concepts are the same.  The two flags to know about at this point are:
 
