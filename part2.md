@@ -190,14 +190,109 @@ Using these components, we want to write a regular expression to capture the nam
 
 Hint: You'll probably want a non-greedy quantifier: `.+?` will match 1 or more characters, until the next part of the expression matches.  
 
-## Concept 4:
+## Concept 4: Substitutions
+
+Groups are also useful when you want to change or replace text (called a substitution or sub in most systems), rather than just extracting it.  Instead of just writing an expression to match text, you also need to write an expression of what to replace the text with.  You can reference the text matched by groups by number -- the groups are numbered from left to right in the expression.  The group references typically use either `$1` or `\1` as reference to the first group.  Whether it's a `$` or `\` depends on the system.  Python and R use `\#` to refer to groups.
+
+In the RegExr tool we're using here, we use `$#` to refer to a group:
+
+![](replace.png)
+
+In the example above, we have two groups in the regular expression at the top: one to match the city, and one to match the state.  The comma and space are part of the regular expression but not in either group.  To write a replacement expression in RegExr, for the bottom pane, choose the Replace option on the right.  Then you can write an expression referencing the groups and adding other text as needed.
 
 ### EXERCISE 4
 
-## Concept 5:
+Open the [blank example](regexr.com/5rddd). Click on Replace for the bottom tab so that you can substitute or replace text.  Turn on the multiline flag.
+
+Enter this regular expression: `^ +(.+?) (f?e?male)`
+
+Write a replacement expression so that the first few lines of output look like the following, with the name of the country, followed by a colon and space, and then the rest of the information from each line, minus male/female.
+
+Example output:
+```
+United States: Joseph M. Acaba
+United States: Loren Acton
+United States: James Adamson
+Soviet Union Russia: Viktor M. Afanasyev
+Kazakhstan: Aydyn Aimbetov, first cosmonaut by KazCosmos-selection in space
+United States: Thomas Akers
+```
+
+## Concept 5: Or `|`
+
+The vertical pipe `|` indicates a logical "or" in an expression.  It lets us provide two different options as to what might match (or more than two if we use more than one `|`).  When used in an expression, `left|right`, everything to the left of `|` is one expression, and everything to the right is another, unless `|` appears inside a group `()`.  You can sometimes get unexpected behavior with `|` outside of groups, so putting it in a group, even if you don't otherwise need one, is often a good idea.  
+
+
+### Example
+
+Text:
+```
+Iran United States female Anousheh Ansari
+United States male Dominic A. Antonelli
+United States male Jerome Apt
+United States male Lee Archambault
+```
+
+Regular Expression: `male|female`
+
+Matches:
+```
+female
+male
+male
+male
+```
+
+
 
 ### EXERCISE 5
 
-## Learning More
+Open the [blank example](regexr.com/5rddd). Click on Replace for the bottom tab so that you can substitute or replace text.  Turn on the multiline flag.
 
-What to learn more about regular expressions?  Check out our [resource guide for free, online learning resources](https://sites.northwestern.edu/researchcomputing/2021/03/04/online-learning-resources-regular-expressions/).
+We're going to finally turn the astronaut text into a data set that we could maybe use.  We want to extract the three pieces of information that appear in every line: country, male or female, and name.  We want to convert these to be comma separated values, meaning there is a comma between each piece of information on the same line.  We want to discard all other information.
+
+Fair warning: we're going to have to put together lots of pieces we've learned in the first two parts of this workshop to write an expression that is much more complicated than the previous exercises.  This is a signifcant step up in difficulty.  We're going to approach it in parts.
+
+#### Part 1
+
+There are two types of lines in the text:
+
+* Ones with 4 spaces, then country, space, male/female, space, name, end of the line
+* Ones with the same parts above, followed by a space, then either a ` (` (space then opening parenthesis) or `, ` (comma then space) and additional information
+
+To build up a larger expression, first write a regular expression that will match ` (` or `, `, and then any amount of text after that.  Make sure the multiline flag is turned on.
+
+Hint: to match any amount of text, use `.*`.  
+
+#### Part 2
+
+Since the expression above doesn't match every line, we also need to account for cases where the name is followed by the end of line `$`.  Add `$` to your "or" expression above to allow for this possibility.  For example, if your "or" expression above was `(____|____)`, then you should make it: `($|____|____)` 
+
+Now, add to the beginning of the expression to match the 4 leading spaces, and the 3 capturing groups: one for country, one for male or female, and one for the astronaut's name.  You can find a start at this expression in Exercise 4 (the expression in exercise 4 matches the spaces, country, and male/female; add another capturing group to it for the name).
+
+Write a replacement expression to make the comma separated values data we want.  The first few lines of output after replacement should look like:
+
+```
+United States,male,Joseph M. Acaba
+United States,male,Loren Acton
+United States,male,James Adamson
+Soviet Union Russia,male,Viktor M. Afanasyev
+Kazakhstan,male,Aydyn Aimbetov
+United States,male,Thomas Akers
+Japan,male,Toyohiro Akiyama
+```
+
+## Wrap-up
+
+Yay! We now have our astronaut list looking like a data set with structure and variables instead of just text.  The final expression was pretty complicated, but if you break down each part, you know what everything means.  
+
+## Additional Practice/Review
+
+[RegexOne](https://regexone.com/) is a good resource to review the above concepts and try some additional exercises.
+
+Also, check out our [resource guide for free, online learning resources](https://sites.northwestern.edu/researchcomputing/2021/03/04/online-learning-resources-regular-expressions/).
+
+## Answers
+
+If you want the answers to the above exercises for reference later (don't cheat during the workshop!), you can find them [here](part2_answers.html).
+
