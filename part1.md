@@ -43,7 +43,6 @@ The data we're going to work with is copied from a [list of astronauts from Wiki
     United States male William Anders, first Asian-born person in space (born in Hong Kong, but an American citizen)
     United States male Clayton Anderson
     United States male Michael P. Anderson (1959–2003), died on February 1, 2003, in the Space Shuttle Columbia disaster of STS-107[7]
-    (Claudie André-Deshays – see Claudie Haigneré)
     Iran United States female Anousheh Ansari, fourth spaceflight participant, first woman of Muslim descent in space, and first Iranian in space
     United States male Dominic A. Antonelli
     United States male Jerome Apt
@@ -302,7 +301,7 @@ king skil
 Open the [blank example](regexr.com/5rddd).  
 
 1. Write an expression to find a digit followed by a comma `,`
-2. Use a character class to write an expression to match both `moon` and `Moon` - type how many times the word appears in the chat.
+2. Use a character class to write an expression to match both `moon` and `Moon` - type how many times variations on moon appear in the chat.
 
 CHALLENGE: Write an expression to find all capitalized words in the example text.  The expression should only match the letters in the word and not include any spaces before or after it.  You probably want to include the character class for word characters noted above.  The answer would also match parts of strings where the capital letter isn't at the start (e.g. "elNiri"), but there aren't any cases like that in our example data, so we won't worry about that!  We'll learn how to actually deal with word boundaries in Part 2.  
 
