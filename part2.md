@@ -243,6 +243,42 @@ male
 male
 ```
 
+If we wanted to add in a third gender category, we can use multiple `|` to separate more than two categories: `male|female|nonbinary`
+
+
+### Example
+
+Match only valid times listed in HH:MM format.  
+
+The hours HH component can range from 00 to 23 (24:00 is actually 00:00). So if the first digit is a 0 or 1, the second digit could be anything. But if the first digit in the hours is a 2, then the second digit can only be 0-3.  This gives us two possible ways to match the hours:
+
+* `[01]\d`
+* `2[0-3]`
+
+The minutes MM component can range from 00 to 59.  So this is easier: first digit has to be 0-5, second digit can be anything.  We can match the minutes with: `[0-5]\d`
+
+Now, combine the two possibilities for matching hours with or `|` and add on the minutes part:
+
+`([01]\d|2[0-3]):[0-5]\d`
+
+We need to put the combined expression for hours: `[01]\d|2[0-3]` in `()` to limit the scope of the or `|`.  
+
+
+`([01]\d|2[0-3]):[0-5]\d` matches:
+
+```
+00:15
+09:45
+23:10
+```
+
+`([01]\d|2[0-3]):[0-5]\d` does not match:
+
+```
+30:00
+10:99
+27:10
+```
 
 
 ### EXERCISE 5
