@@ -49,10 +49,43 @@ Match word boundaries with `\b`
 
 Write a regular expression to extract the ticker and the price.  
 
-
+Done early?  Try [Regex crossword](https://regexcrossword.com/)
 
 
 ## Case 2
+
+Processing peer feedback given on presentations - find comments that indicate the presenter needs to slow down.  
+
+```
+He should slow down a bit.
+It would have been easier to understand if she slowed down. 
+Slowing down will help them be more effective.
+He talked too fast - try slowing down
+Slow your pace down a little
+We went too slow.
+The pace was just right - not too slow or too fast.
+Slow and steady is a good approach, but put your notes down when you speak.
+```
+
+**Goal:** Match the first 5 lines (containing a variant of slow and down near each other) and not the last 3.
+
+### Reminders
+
+Use `{}` to specify the number of times the previous character (or group) should match.  For example: `z{2,}` would match 2 or more z's.  
+
+Regular expressions are case sensitive.  Use the case insensitive flag, or if you only care about one character, you can do something like: `[aA]`.  
+
+### EXERCISE
+
+[Open the RegExr tool with this text](http://regexr.com/5tc33)
+
+Write an expression to match the first 5 lines and not the last 3.  
+
+Done early?  Try [Regex crossword](https://regexcrossword.com/)
+
+
+
+## Case 3
 
 This is real address data from the Evanston 311 requests line:
 
@@ -126,21 +159,77 @@ We'll get the 3 pieces of information in two steps:
 
 For both steps, remember to use the bottom pane to write an expression to display the groups (click on "List" instead of "Replace").  Example List expression: `$1, $2`
 
+Done early?  Try [Regex crossword](https://regexcrossword.com/)
 
-## Case 3
 
+## Case 4
 
+Here is a part of a list of Illinois executive orders related to COVID-19, from [here](https://www.dph.illinois.gov/covid19/governor-pritzkers-executive-orders-and-rules)
+
+Each executive order has a title, with a code reference in (), a blurb, and then an effective date.  
 
 ```
+Hospital Licensing Requirements (77 Ill. Adm. Code 250)
 
+This rule suspends portions of the hospital licensing requirements in response to the COVID-19 pandemic and establishes standards and licenses for temporary alternate care facilities. These facilities may be run either by a licensed hospital or by the State of Illinois through one of its agencies or in cooperation with one or more federal or local government bodies.
+
+Effective April 16, 2020
+
+Adverse Health Care Events Reporting Code (77 Ill. Adm. Code 235)
+
+This rule suspends all requirements of the Adverse Health Care Events Reporting Code in response to the COVID-19 pandemic
+
+Effective April 17, 2020
+
+Health Care Worker Background Check Code (77 Ill. Adm. Code 955)
+
+This emergency rule temporarily amends the provisions of the Healthcare Worker Background Check Code to require an individual to have their fingerprints collected within 30 days (increased from 10 working days) after being hired.
+
+Effective April 10, 2020
+
+Emergency Medical Services, Trauma Center, Comprehensive Stroke Center, Primary Stroke Center and Acute Stroke Ready Hospital Code (77 IAC 515)
+
+In order to address Emergency Medical Service (EMS) staffing needs this rulemaking: authorizes Clinical Nurse Specialists to work in  hospital emergency departments designated as an Emergency Department Approved for Pediatrics (EDAP), Standby Emergency Department Approved for Pediatrics (SEDP) or Pediatric Critical Care Center (PCCC), in order to afford hospitals more flexible staffing options; helps reduce hospital staffing costs by permitting nurse practitioners, clinical nurse specialists and physician assistants to provide backup coverage during critical situations; expands the scope of the pediatric intensive care unit committee to include advanced practice providers; clarifies the role and qualifications of Pediatric Clinical Nurse Specialist; clarifies the role and qualifications of the Pediatric Clinical Nurse Expert as a member of the pediatric intensive care unit leadership team; expands the types of minimum training requirements of the Pediatric Clinical Nurse Expert to help alleviate staffing shortages and minimize costs; and updates the equipment list to reflect current medical standards.  
+
+Effective April 10, 2020
+
+Health Care Worker Background Check Code (77 Ill. Adm. Code 955)
+
+This emergency rule temporarily amends the provisions of the Healthcare Worker Background Check Code to require an individual to have their fingerprints collected within 30 days (increased from 10 working days) after being hired.
+
+Effective April 10, 2020
+
+Emergency Medical Services, Trauma Center, Comprehensive Stroke Center, Primary Stroke Center and Acute Stroke Ready Hospital Code (77 IAC 515)
+
+In order to address Emergency Medical Service (EMS) staffing needs this rulemaking: authorizes Clinical Nurse Specialists to work in  hospital emergency departments designated as an Emergency Department Approved for Pediatrics (EDAP), Standby Emergency Department Approved for Pediatrics (SEDP) or Pediatric Critical Care Center (PCCC), in order to afford hospitals more flexible staffing options; helps reduce hospital staffing costs by permitting nurse practitioners, clinical nurse specialists and physician assistants to provide backup coverage during critical situations; expands the scope of the pediatric intensive care unit committee to include advanced practice providers; clarifies the role and qualifications of Pediatric Clinical Nurse Specialist; clarifies the role and qualifications of the Pediatric Clinical Nurse Expert as a member of the pediatric intensive care unit leadership team; expands the types of minimum training requirements of the Pediatric Clinical Nurse Expert to help alleviate staffing shortages and minimize costs; and updates the equipment list to reflect current medical standards.  
+
+Effective April 10, 2020
+
+School Based/Linked Health Centers (77 Ill. Adm. Code 641)
+
+This emergency rule extends the current certifications for school-based/linked health centers whose certifications are scheduled to expire before June 30, 2020.  The rule extends the certification for 150 days from the current expiration. In addition, it ensures that school based/linked centers can remain operational, able to provide necessary services to the communities they serve, and eligible to obtain Medicaid reimbursement. While schools are closed now some these centers continue to provide services. Without the emergency rule, the certification for some school-based/linked health centers would expire and their ability to receive Medicaid reimbursement would be in jeopardy.
+
+Effective April 2, 2020
 ```
 
+**Goal:** Extract title, code reference, and effective date and put into csv format.
 
-### Reminder
+
+### Reminders
+
+To match a literal `(`, you need to escape it: `\(`
+
+A new line is `\n`.  `.` doesn't match `\n` unless you turn on the dotall flag.  
+
+`$` only matches the end of all of the text unless you turn on the multiline flag.
 
 ### EXERCISE
 
-[Open the RegExr tool with this text](http://)
+[Open the RegExr tool with this text](http://regexr.com/5tbv8)
+
+Extract the three pieces of information: title, code reference (without the parentheses included), and effective date
+
+Done early?  Try [Regex crossword](https://regexcrossword.com/)
 
 
 
