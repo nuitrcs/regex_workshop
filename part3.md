@@ -9,7 +9,7 @@ You may find [this cheatsheet](https://paulvanderlaken.files.wordpress.com/2017/
 
 ## Intro
 
-This session of the workshop series focuses on putting the pieces from [Part 1](part1.html) and [Part 2](part2.html) together.  Learning the individual components is the first step to writing regular expressions, but interesting things can happen when you start to combine multiple pieces together.  
+This session of the workshop series focuses on putting the pieces from [Part 1](part1.html) and [Part 2](part2.html) together.  Learning the individual components is the first step to writing regular expressions, but interesting things can happen when you start to combine multiple pieces together.  It's also a significant step up in difficulty to start matching text in real situations.
 
 How do we write complex regular expressions?
 
@@ -22,7 +22,37 @@ Remember: you're generally going to be using regular expressions as part of a pr
 
 There's no one "right" regular expression -- it depends on the specific text you're working with.  Getting an expression that works for your data is the goal.
 
+
 ## Case 1
+
+A hypothetical sentence from a news report on the stock market.  
+
+```
+Some of the prices were as following TSLA:749.50, ORCL: 50.50, GE: 10.90, MSFT: 170.50, BIDU: 121.40.
+```
+
+**Goal:** Extract two pieces of information: stock ticker and price.  
+
+
+### Reminders
+
+To match an actual period, you will want to escape it: `\.` because `.` alone matches any character.  However, inside a character set `[]`, you can put a `.` without escaping it (because you can only have literal characters inside `[]`).  
+
+To make a character optional, follow it with `?`
+
+Match word boundaries with `\b`
+
+
+### EXERCISE
+
+[Open the RegExr tool with this text](http://regexr.com/5tac5)
+
+Write a regular expression to extract the ticker and the price.  
+
+
+
+
+## Case 2
 
 This is real address data from the Evanston 311 requests line:
 
@@ -47,6 +77,8 @@ Davis & Orrington, Evanston, IL 60201, USA
 312 Custer Ave, Evanston, IL 60202, USA
 1132 Maple Ave,Evanston, IL 60202
 ```
+
+**Goal:** Extract three groups from the data above: house/street number, street name, zip code.
 
 ### Reminder
 
@@ -81,11 +113,13 @@ blue ,racoon
 red ,worm
 ```
 
+Once you've extracted these values, you can strip out the unwanted spaces.
+
 ### EXRECISE
 
-**Goal:** Extract three groups from the data above: house/street number, street name, zip code.
-
 [Open the RegExr tool with this text](http://regexr.com/5taau)
+
+We'll get the 3 pieces of information in two steps:
 
 * Write an expression to find any zip codes.
 * Write an expression to extract the house/street number AND street name as two separate pieces of information (capture with two different groups).
@@ -93,5 +127,24 @@ red ,worm
 For both steps, remember to use the bottom pane to write an expression to display the groups (click on "List" instead of "Replace").  Example List expression: `$1, $2`
 
 
+## Case 3
 
 
+
+```
+
+```
+
+
+### Reminder
+
+### EXERCISE
+
+[Open the RegExr tool with this text](http://)
+
+
+
+
+## Answers
+
+[Part 3 Answers](part3_answers.html) - don't cheat!  Try the exercises first.  These are for reference later.  There are other valid solutions to the exercises as well.
