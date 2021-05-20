@@ -9,6 +9,7 @@ There is nothing to download for the initial sessions.  Follow the links below. 
 
 * [Part 1](https://nuitrcs.github.io/regex_workshop/part1.html)
 * [Part 2](https://nuitrcs.github.io/regex_workshop/part2.html)
+* [Part 3](https://nuitrcs.github.io/regex_workshop/part3.html)
 
 Coming Soon...
 
