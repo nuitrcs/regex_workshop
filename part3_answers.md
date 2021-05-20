@@ -8,3 +8,8 @@
 
 `(\d+)?(?: |^)(.+?),.+`
 
+## Case 3
+
+`(.+?) \((\d.+?)\)\n\n.+\n\nEffective (.+)(\n|$)`
+
+Because the pieces have commas in them, if you wanted to turn this into a csv file, you'd want to quote some of the pieces: `"$1",$2,"$3"`
