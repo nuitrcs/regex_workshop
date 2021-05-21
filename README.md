@@ -5,16 +5,16 @@ This is a multi-part workshop covering the basics of regular expressions.  The f
 
 ## Files
 
-There is nothing to download for the initial sessions.  Follow the links below.  Exercises are also run in your web browser.  
+There is nothing to download for the initial sessions.  Follow the links below.  Exercises are also run in your web browser.  These tutorials are not language-specific -- they cover general concepts of regular expressions that can be used across programming languages.
 
 * [Part 1](https://nuitrcs.github.io/regex_workshop/part1.html)
 * [Part 2](https://nuitrcs.github.io/regex_workshop/part2.html)
 * [Part 3](https://nuitrcs.github.io/regex_workshop/part3.html)
 
-Coming Soon...
+Language-specific materials
 
-* R materials
-* Python materials
+* [R: Regex with stringr](https://github.com/nuitrcs/r-tidyverse) - one of the additional sessions
+* [Python regex and string methods](https://github.com/nuitrcs/NextStepsInPython/tree/master/stringPatterns)
 
 ## Resources
 
