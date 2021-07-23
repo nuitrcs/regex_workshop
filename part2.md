@@ -70,7 +70,7 @@ With the word boundary `\b` at the beginning of the expression, it only matches 
 
 ### EXERCISE 1
 
-Open the [blank example](regexr.com/5rddd). 
+Open the [blank example](https://regexr.com/5rddd). 
 
 Write a regular expression to find all words that end in a `y`.  Have your expression match the entire word, not just the ending `y`.  Hint: recall `\w` will match any "word" characters, which may help for capturing the first part of the word that isn't "y".  Need a refresher on how to represent [repetition](part1.html#concept-3-repetition)?
 
@@ -114,7 +114,7 @@ Matches:
 
 ### EXERCISE 2
 
-Open the [blank example](regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
+Open the [blank example](https://regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
 
 Write a regular expression to match any number of spaces (0 or more) at the beginning of each line of the text.  
 
@@ -166,7 +166,7 @@ CA
 ### EXERCISE 3A
 
 
-Open the [blank example](regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
+Open the [blank example](https://regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
 
 To see the results of the group match, instead of the entire expression, in the bottom, change `$&\n` to `$1\n`.  The `1` is for the first group in the expression you'll write.
 
@@ -177,7 +177,7 @@ Now **write a regular expression that includes a group to capture the first lett
 
 ### EXERCISE 3B
 
-Open the [blank example](regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
+Open the [blank example](https://regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
 
 To see the results of the group match in the bottom, , instead of the entire expression, change `$&\n` to `$1\n`.  The `1` is for the first group in the expression you'll write.
 
@@ -202,7 +202,7 @@ In the example above, we have two groups in the regular expression at the top: o
 
 ### EXERCISE 4
 
-Open the [blank example](regexr.com/5rddd). Click on Replace for the bottom tab so that you can substitute or replace text.  Turn on the multiline flag.
+Open the [blank example](https://regexr.com/5rddd). Click on Replace for the bottom tab so that you can substitute or replace text.  Turn on the multiline flag.
 
 Enter this regular expression: `^ *(.+?) (f?e?male)`
 
@@ -283,7 +283,7 @@ We need to put the combined expression for hours: `[01]\d|2[0-3]` in `()` to lim
 
 ### EXERCISE 5
 
-Open the [blank example](regexr.com/5rddd). Click on Replace for the bottom tab so that you can substitute or replace text.  Turn on the multiline flag.
+Open the [blank example](https://regexr.com/5rddd). Click on Replace for the bottom tab so that you can substitute or replace text.  Turn on the multiline flag.
 
 We're going to finally turn the astronaut text into a data set that we could maybe use.  We want to extract the three pieces of information that appear in every line: country, male or female, and name.  We want to convert these to be comma separated values, meaning there is a comma between each piece of information on the same line.  We want to discard all other information.
 
