@@ -65,7 +65,17 @@ Matches:
 male
 ```
 
-With the word boundary `\b` at the beginning of the expression, it only matches the "male" at the end of the sentence.  It does not match the "male" in "female" like `male` without a word boundary indicator would.
+With the word boundary `\b` at the beginning of the expression, it only matches the word "male" at the end of the sentence.  It does not match the "male" in "female" like `male` without a word boundary indicator would.
+
+
+Regular Expression: `\bf\w+`
+
+Matches:
+```
+female
+```
+
+We don't have a word boundary at the end of the expression: why does the match stop at the end of the word, instead of continuing past it?  Because `\w` only matches "word" characters, and punctuation (the ",") is not part of that character class.  Spaces also aren't part of the `\w` character class.
 
 
 ### EXERCISE 1
@@ -114,7 +124,7 @@ Matches:
 
 ### EXERCISE 2
 
-Open the [blank example](https://regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
+Open the [blank example](https://regexr.com/5rddd).  Under the "Flags" menu in the upper right, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.  You'll see an "m" after the "/g" at the end of the expression to indicate that the multiline flag is on for the regex.
 
 Write a regular expression to match any number of spaces (0 or more) at the beginning of each line of the text.  
 
@@ -166,9 +176,9 @@ CA
 ### EXERCISE 3A
 
 
-Open the [blank example](https://regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
+Open the [blank example](https://regexr.com/5rddd).  Under the "Flags" menu in the upper right, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
 
-To see the results of the group match, instead of the entire expression, in the bottom, change `$&\n` to `$1\n`.  The `1` is for the first group in the expression you'll write.
+To see the results of the group match, instead of the entire expression, in the bottom, change `$&\n` to `$1\n`.  The `$1` is for the first group in the expression you'll write. The `\n` is a line break to separate the matches each onto their own line.
 
 Recall that `^ *` matched the spaces at the beginning of the line.
 
@@ -177,9 +187,7 @@ Now **write a regular expression that includes a group to capture the first lett
 
 ### EXERCISE 3B
 
-Open the [blank example](https://regexr.com/5rddd).  Under the "Flags" menu in the upper left, turn on the "multiline" option (should be checked) so that the text is treated as multiple lines, not just one.
-
-To see the results of the group match in the bottom, , instead of the entire expression, change `$&\n` to `$1\n`.  The `1` is for the first group in the expression you'll write.
+Open the [blank example](https://regexr.com/5rddd).  Under the "Flags" menu in the upper right, turn on the "multiline" option (should be checked).  To see the results of the group match in the bottom, instead of the entire expression, change `$&\n` to `$1\n`.
 
 Recall that we've written two regular expressions before:
 
@@ -192,7 +200,7 @@ Hint: You'll probably want a non-greedy quantifier: `.+?` will match 1 or more c
 
 ## Concept 4: Substitutions
 
-Groups are also useful when you want to change or replace text (or substite, or sub for short), rather than just extracting it.  Instead of just writing an expression to match text, you also need to write an expression of what to replace the text with.  You can reference the text matched by groups by number -- the groups are numbered from left to right in the expression.  The group references typically use either `$1` or `\1` as reference to the first group.  Whether it's a `$` or `\` depends on the system.  Python and R use `\#` to refer to groups (where `#` is the number of the group).
+Groups are also useful when you want to change or replace text (or substitute, or sub for short), rather than just extracting it.  Instead of just writing an expression to match text, you also need to write an expression of what to replace the text with.  You can reference the text matched by groups by number -- the groups are numbered from left to right in the expression.  The group references typically use either `$1` or `\1` as reference to the first group.  Whether it's a `$` or `\` depends on the system.  Python and R use `\#` to refer to groups (where `#` is the number of the group).
 
 In the RegExr tool we're using here, we use `$#` to refer to a group:
 
@@ -207,6 +215,8 @@ Open the [blank example](https://regexr.com/5rddd). Click on Replace for the bot
 Enter this regular expression: `^ *(.+?) (f?e?male)`
 
 Write a replacement expression so that the first few lines of output look like the following, with the name of the country, followed by a colon and space, and then the rest of the information from each line, minus male/female.
+
+Hint: you may need to delete the `<<` and `>>` that are automatically put as part of the replacement.
 
 Example output:
 ```
@@ -248,7 +258,7 @@ If we wanted to add in a third gender category, we can use multiple `|` to separ
 
 ### Example
 
-Match only valid times listed in HH:MM format.  
+Match only valid times listed in HH:MM format.  [Example](https://regexr.com/62f54)
 
 The hours HH component can range from 00 to 23 (24:00 is actually 00:00). So if the first digit is a 0 or 1, the second digit could be anything. But if the first digit in the hours is a 2, then the second digit can only be 0-3.  This gives us two possible ways to match the hours:
 
@@ -293,20 +303,20 @@ Fair warning: we're going to have to put together lots of pieces we've learned i
 
 There are two types of lines in the text:
 
-* Ones with 4 spaces, then country, space, male/female, space, name, end of the line
-* Ones with the info we want, followed by a space, then the either space and `(` or `,` and space and other info
+* Ones with just country, gender, and name.  They have 4 spaces, then country, space, male/female, space, name, end of the line.  Example: `••••United States male James Adamson`
+* Ones with the info above, plus extra information.  They have the above pattern, then the either 1) space and `(` OR 2) `,` and space.  The other information follows.  Example: `••••Kazakhstan male Aydyn Aimbetov, first cosmonaut by KazCosmos-selection in space`
 
-To build up a larger expression, first **write a regular expression that will match a space then `(` or `,` then a space, and then any amount of text after that.**  Make sure the multiline flag is turned on.
-
-Hint: to match any amount of text, use `.*`.  
+To build up a larger expression, first **write a regular expression that will match 1) a space then `(` OR 2) `,` then a space.**  Make sure the multiline flag is turned on.
 
 #### Part 2
 
 Putting it all together: **write a regex to extract country, male/female, and name from each line and turn them into comma separated values.**
 
-Since the expression above doesn't match every line, we also need to account for cases where the name is followed by the end of line `$`.  Add `$` to your "or" expression above to allow for this possibility.  For example, if your "or" expression above was `(____|____)`, then you should make it: `($|____|____)` 
+The trick is knowing when the name ends.  It might end the line (`\n` or `$`), or there might be additional information after.
 
-Now, add to the beginning of the expression to match the 4 leading spaces, and the 3 capturing groups: one for country, one for male or female, and one for the astronaut's name.  You can find a start at this expression in Exercise 4 (the expression in exercise 4 matches the spaces, country, and male/female; add another capturing group to it for the name).
+Since the expression above to detect lines with additional information doesn't match every line, we also need to account for cases where the name is followed by the end of line `$`.  Add `$` to your "or" expression above to allow for this possibility.  For example, if your "or" expression above was `(____|____)`, then you should make it: `($|____|____)` 
+
+Now, write your complete expression to match the 4 leading spaces, and the 3 capturing groups: one for country, one for male or female, and one for the astronaut's name.  Then terminate the last group with your OR expression to tell where the name ends.  You can find a start at this expression in Exercise 4 (the expression in exercise 4 matches the spaces, country, and male/female; add another capturing group to it for the name).
 
 Write a replacement expression to make the comma separated values data we want.  The first few lines of output after replacement should look like:
 
