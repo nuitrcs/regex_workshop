@@ -133,7 +133,7 @@ is.
 
 ### EXERCISE 2
 
-Open the [blank example](http://regexr.com/5rddd).  
+Open the [blank example](https://regexr.com/5rddd).  
 
 1. Write a regular expression to find any substrings consisting of a capital A, followed by any character, followed by a lower case a.  For example, the regex should match both `Aca` and `Ada`.  Remember to click on the List option in the bottom pane to see the matches.  Type the last match in the chat.  
 2. Write a regular expression to find any 5 letter sequences starting with A and ending with n.  
@@ -206,7 +206,7 @@ buzzz
 
 ### EXERCISE 3
 
-Open the [blank example](regexr.com/5rddd).  
+Open the [blank example](https://regexr.com/5rddd).  
 
 1. Repeat the exercise above, but use a quantifier this time: Write a regular expression to find any 5 letter sequences starting with A and ending with n.  
 2. Find any sequences of 2 or more spaces (the character made by the space bar key on your keyboard).  
@@ -247,7 +247,7 @@ It will stop the match at the first "n" that it finds.
 
 ### EXERCISE 4
 
-Open the [blank example](regexr.com/5rddd).  
+Open the [blank example](https://regexr.com/5rddd).  
 
 Write an expression using a non-greedy quantifier that matches both `United States` and `United Arab Emirates` and no other words in the astronaut text.
 
@@ -317,7 +317,7 @@ Note: the expressions matches "nat" not "gnat" because `[bcgn]` only matches a s
 
 ### EXERCISE 5
 
-Open the [blank example](regexr.com/5rddd).  
+Open the [blank example](https://regexr.com/5rddd).  
 
 1. Write an expression to find a digit followed by a comma `,`
 2. Use a character class to write an expression to match both `moon` and `Moon` - type how many times variations on moon appear in the chat.
