@@ -69,7 +69,7 @@ We're going to use an online tool called RegExr to practice regular expressions.
 
 ![Image of tool](tool_tour.png)
 
-You can [open the tool](http://regexr.com/5rddd) with the astronaut text loaded.  Click on the List open for the bottom pane to see the match results.
+You can [open the tool](http://regexr.com/5rddd) with the astronaut text loaded.  Click on the List option for the bottom pane to see the match results.
 
 In this tool, you type the regular expression in between `//` at the top.  In Python and R, the regular expression will be an input to a function instead, so you'll express it as a string or a special raw string designed for use with regular expressions.  
 
@@ -82,9 +82,9 @@ In our example, our regular expression is `Soviet Union`.  This will look for ex
 
 ### EXERCISE 1
 
-Open the [example](regexr.com/5rdpd):
+Open the [example](https://regexr.com/5rdpd):
 
-1. Change the pattern to: `soviet union` - does it still match?
+1. Change the pattern to: `soviet union` (all lowercase) - does it still match?
 2. Change the pattern to find female astronauts.  Type the number of times "female" is found in the text in the chat.
 
 
@@ -135,7 +135,7 @@ is.
 
 Open the [blank example](http://regexr.com/5rddd).  
 
-1. Write a regular expression to find any substrings consisting of a capital A, followed by any character, followed by a lower case a.  For example, the regex should match both `Aca` and `Ada`.  Type the last match in the chat.  
+1. Write a regular expression to find any substrings consisting of a capital A, followed by any character, followed by a lower case a.  For example, the regex should match both `Aca` and `Ada`.  Remember to click on the List option in the bottom pane to see the matches.  Type the last match in the chat.  
 2. Write a regular expression to find any 5 letter sequences starting with A and ending with n.  
 3. Write an expression to find actual period marks in the text.  How many are there?  Put the answer in the chat.  
 
@@ -293,6 +293,25 @@ Matches:
 have good
 king skil
 ```
+
+
+### Example
+
+Text:
+```
+The cat, bat, and gnat all wore a hat.
+```
+
+Regular Expression: `[bcgn]at`
+
+Matches:
+```
+cat
+bat
+nat
+```
+
+Note: the expressions matches "nat" not "gnat" because `[bcgn]` only matches a single character.  The regex doesn't match "hat" because "h" isn't in the character class.
 
 
 
