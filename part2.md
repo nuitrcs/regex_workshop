@@ -306,7 +306,7 @@ There are two types of lines in the text:
 * Ones with just country, gender, and name.  They have 4 spaces, then country, space, male/female, space, name, end of the line.  Example: `••••United States male James Adamson`
 * Ones with the info above, plus extra information.  They have the above pattern, then the either 1) space and `(` OR 2) `,` and space.  The other information follows.  Example: `••••Kazakhstan male Aydyn Aimbetov, first cosmonaut by KazCosmos-selection in space`
 
-To build up a larger expression, first **write a regular expression that will match 1) a space then `(` OR 2) `,` then a space.**  Make sure the multiline flag is turned on.
+To build up a larger expression, first **write a regular expression that will match 1) a space then `(` OR 2) `,` then a space.**  Make sure the multiline flag is turned on.  Hint: remember that to match an actual `(`, you'll need to escape it so it doesn't look like the start of a capturing group.
 
 #### Part 2
 
