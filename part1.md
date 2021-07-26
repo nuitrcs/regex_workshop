@@ -243,7 +243,7 @@ Matches:
 Anderson
 ```
 
-It will stop the match at the first "n" that it finds.
+The expression needs to match an "A", then at least one other character (`.+?`), and then an "n".  `.+?` can match an "n", but it doesn't count as the same "n" at the end of the expression.  `A.*?n` would match "An" only, instead of "Anderson", because `.*?` can match 0 characters -- there doesn't need to be another character in between "A" and "n".
 
 ### EXERCISE 4
 
@@ -322,7 +322,9 @@ Open the [blank example](https://regexr.com/5rddd).
 1. Write an expression to find a digit followed by a comma `,`
 2. Use a character class to write an expression to match both `moon` and `Moon` - type how many times variations on moon appear in the chat.
 
-CHALLENGE: Write an expression to find all capitalized words in the example text.  The expression should only match the letters in the word and not include any spaces before or after it.  You probably want to include the character class for word characters noted above.  The answer would also match parts of strings where the capital letter isn't at the start (e.g. "elNiri"), but there aren't any cases like that in our example data, so we won't worry about that!  We'll learn how to actually deal with word boundaries in Part 2.  
+CHALLENGE: Write an expression to find all capitalized words in the example text.  The expression should only match the letters in the word and not include any spaces before or after it.  You probably want to include the character class for word characters noted above, and looking ahead to the bonus concept below will help you out.
+
+Note for challenge: The answer would also match parts of strings where the capital letter isn't at the start (e.g. "elNiri"), but there aren't any cases like that in our example data, so we won't worry about that!  We'll learn how to actually deal with word boundaries in Part 2.  
 
 
 
