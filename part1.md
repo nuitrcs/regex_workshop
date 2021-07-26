@@ -82,7 +82,7 @@ In our example, our regular expression is `Soviet Union`.  This will look for ex
 
 ### EXERCISE 1
 
-Open the [example](https://regexr.com/5rdpd):
+Open the [example](https://regexr.com/5rddd):
 
 1. Change the pattern to: `soviet union` (all lowercase) - does it still match?
 2. Change the pattern to find female astronauts.  Type the number of times "female" is found in the text in the chat.
