@@ -265,7 +265,7 @@ We need to put the combined expression for hours: `[01]\d|2[0-3]` in `()` to lim
 
 ### EXERCISE 4
 
-Open the [blank example](https://regexr.com/5rddd). Click on Replace for the bottom tab so that you can substitute or replace text.  Turn on the multiline flag.
+Open the [blank example](https://regexr.com/5rddd). Turn on the multiline flag.
 
 We're going to finally turn the astronaut text into a data set that we could maybe use.  We want to extract the three pieces of information that appear in every line: country, male or female, and name.  We want to convert these to be comma separated values, meaning there is a comma between each piece of information on the same line.  We want to discard all other information.
 
@@ -290,7 +290,7 @@ Since the expression above to detect lines with additional information doesn't m
 
 Now, write your complete expression to match the 4 leading spaces, and the 3 capturing groups: one for country, one for male or female, and one for the astronaut's name.  Then terminate the last group with your OR expression to tell where the name ends.  You can find a start at this expression in Exercise 4 (the expression in exercise 4 matches the spaces, country, and male/female; add another capturing group to it for the name).
 
-Write a replacement expression to make the comma separated values data we want.  The first few lines of output after replacement should look like:
+Write a replacement expression in the bottom window of the tool to make the comma separated values data we want.  The first few lines of output after replacement should look like:
 
 ```
 United States,male,Joseph M. Acaba
@@ -301,6 +301,8 @@ Kazakhstan,male,Aydyn Aimbetov
 United States,male,Thomas Akers
 Japan,male,Toyohiro Akiyama
 ```
+
+Remember that `$1` is the text matched by your first group, `$2` is the text matched by your second group, and so on.
 
 ## Wrap-up
 
