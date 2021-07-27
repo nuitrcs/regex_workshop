@@ -172,6 +172,8 @@ DC
 CA
 ```
 
+You can reference the text matched by groups by number -- the groups are numbered from left to right in the expression.  The group references typically use either `$1` or `\1` as reference to the first group.  Whether it's a `$` or `\` depends on the system.  Python and R use `\#` to refer to groups (where `#` is the number of the group), while the tool we're using here uses `$#`.
+
 
 ### EXERCISE 3A
 
@@ -198,37 +200,7 @@ Using these components, we want to **write a regular expression to capture the n
 
 Hint: You'll probably want a non-greedy quantifier: `.+?` will match 1 or more characters, until the next part of the expression matches.  
 
-## Concept 4: Substitutions
-
-Groups are also useful when you want to change or replace text (or substitute, or sub for short), rather than just extracting it.  Instead of just writing an expression to match text, you also need to write an expression of what to replace the text with.  You can reference the text matched by groups by number -- the groups are numbered from left to right in the expression.  The group references typically use either `$1` or `\1` as reference to the first group.  Whether it's a `$` or `\` depends on the system.  Python and R use `\#` to refer to groups (where `#` is the number of the group).
-
-In the RegExr tool we're using here, we use `$#` to refer to a group:
-
-![](replace.png)
-
-In the example above, we have two groups in the regular expression at the top: one to match the city, and one to match the state.  The comma and space are part of the regular expression but not in either group.  To write a replacement expression in RegExr, for the bottom pane, choose the Replace option on the right.  Then you can write an expression referencing the groups and adding other text as needed.
-
-### EXERCISE 4
-
-Open the [blank example](https://regexr.com/5rddd). Click on Replace for the bottom tab so that you can substitute or replace text.  Turn on the multiline flag.
-
-Enter this regular expression: `^ *(.+?) (f?e?male)`
-
-Write a replacement expression so that the first few lines of output look like the following, with the name of the country, followed by a colon and space, and then the rest of the information from each line, minus male/female.
-
-Hint: you may need to delete the `<<` and `>>` that are automatically put as part of the replacement.
-
-Example output:
-```
-United States: Joseph M. Acaba
-United States: Loren Acton
-United States: James Adamson
-Soviet Union Russia: Viktor M. Afanasyev
-Kazakhstan: Aydyn Aimbetov, first cosmonaut by KazCosmos-selection in space
-United States: Thomas Akers
-```
-
-## Concept 5: Or `|`
+## Concept 4: Or `|`
 
 The vertical pipe `|` indicates a logical "or" in an expression.  It lets us provide two different options as to what might match (or more than two if we use more than one `|`).  When used in an expression, `left|right`, everything to the left of `|` is one expression, and everything to the right is another, unless `|` appears inside a group `()`.  You can sometimes get unexpected behavior with `|` outside of groups, so putting it in a group, even if you don't otherwise need one, is often a good idea.  
 
@@ -291,7 +263,7 @@ We need to put the combined expression for hours: `[01]\d|2[0-3]` in `()` to lim
 ```
 
 
-### EXERCISE 5
+### EXERCISE 4
 
 Open the [blank example](https://regexr.com/5rddd). Click on Replace for the bottom tab so that you can substitute or replace text.  Turn on the multiline flag.
 
