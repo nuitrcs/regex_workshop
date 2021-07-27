@@ -28,11 +28,6 @@ Last word that matches is: `Ashby`
 
 ### EXERCISE 4
 
-
-Replacement expression: `$1:`
-
-### EXERCISE 5
-
 #### Part 1
 
 `(, | \()`
