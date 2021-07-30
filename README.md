@@ -14,7 +14,7 @@ There is nothing to download for the initial sessions.  Follow the links below. 
 Language-specific materials
 
 * [R: Regex with stringr](https://github.com/nuitrcs/r-tidyverse) - one of the additional sessions
-* [Python regex and string methods](https://github.com/nuitrcs/NextStepsInPython/tree/master/stringPatterns)
+* [Python regex and string methods](https://colab.research.google.com/github/nuitrcs/regex_python/blob/main/regex-Answers.ipynb)
 
 ## Resources
 
